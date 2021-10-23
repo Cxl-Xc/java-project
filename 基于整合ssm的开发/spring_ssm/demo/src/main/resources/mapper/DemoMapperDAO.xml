@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.DemoMapper">
+
+    <insert id="insertInto"  parameterType="com.example.demo.entity.DemoEntity">
+            insert into test (magic_id,first_name,last_name)VALUES(#{magicId},#{firstName},#{lastName})
+    </insert>
+
+    <update id="updateById" parameterType="com.example.demo.entity.DemoEntity">
+            update test set magic_id=#{magicId},first_name=#{firstName},last_name=#{lastName} where id=#{id}
+    </update>
+
+    <delete id="deleteById"  parameterType="java.lang.Integer">
+            delete from test where id=#{id}
+    </delete>
+
+    <select id="getById" resultType="com.example.demo.entity.DemoEntity" parameterType="java.lang.Integer">
+            select * from test where id=#{id}
+    </select>
+
+    <select id="selectAll" resultType="com.example.demo.entity.DemoEntity">
+            select * from test
+    </select>
+
+
+</mapper>
