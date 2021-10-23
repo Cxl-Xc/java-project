@@ -1,2 +1,2 @@
-# spring-small-ssm
-This is a my first spring-ssm-project
+# java project
+This is something java project
