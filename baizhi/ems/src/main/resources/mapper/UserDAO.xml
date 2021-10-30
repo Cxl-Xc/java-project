@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.ems.dao.UserDAO">
+
+<!--    注册的方法-->
+    <insert id="registUser" parameterType="com.baizhi.ems.dao.UserDAO">
+        insert  into t_user (username,realname,password,sex) VALUES (#{username},#{realname},#{password},#{sex})
+    </insert>
+
+
+<!--    保存用户的方法-->
+    <insert id="userSave" parameterType="com.baizhi.ems.entity.User">
+
+        insert  into t_user (username,realname,password,sex) VALUES (#{username},#{realname},#{password},#{sex})
+
+    </insert>
+
+<!--    更新用户的方法-->
+    <update id="updateByUser" parameterType="com.baizhi.ems.entity.User">
+
+        update t_user set username=#{username},realname=#{realname},password=#{password},sex=#{sex} where id=#{id}
+
+    </update>
+
+
+    <!--    删除用户的方法-->
+    <delete id="deleteByUserId" parameterType="String">
+
+
+        delete from t_user where id=#{id}
+
+    </delete>
+
+
+
+
+    <!--    登录的方法-->
+    <select id="findByUsernameAndPassword" resultType="com.baizhi.ems.entity.User">
+        select id,username,realname,password,sex from t_user where username=#{username} and password=#{password}
+    </select>
+
+
+<!--    查询全部用户的方法-->
+    <select id="findAll" resultType="com.baizhi.ems.entity.User">
+
+        select id,username,realname,password,sex from t_user
+
+    </select>
+
+
+<!--    根据Id查询员工信息的方法-->
+    <select id="findById" parameterType="String" resultType="com.baizhi.ems.entity.User">
+
+        select id,username,realname,password,sex from t_user where id=#{id}
+
+    </select>
+
+
+</mapper>
