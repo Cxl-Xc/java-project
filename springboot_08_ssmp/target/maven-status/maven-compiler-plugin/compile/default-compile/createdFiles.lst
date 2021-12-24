@@ -1,0 +1,12 @@
+com\itheima\service\Impl\BookServiceImpl2.class
+com\itheima\service\BookService.class
+com\itheima\controller\BookController2.class
+com\itheima\controller\BookController.class
+com\itheima\config\MPConfig.class
+com\itheima\dao\BookDao.class
+com\itheima\domain\Book.class
+com\itheima\service\IBookService.class
+com\itheima\service\Impl\BookServiceImpl.class
+com\itheima\controller\utils\Result.class
+com\itheima\SSMPApplication.class
+com\itheima\controller\utils\ProjectExceptionAdvice.class
