@@ -29,11 +29,10 @@ public class UserController {
 
     //账号登录
     @PostMapping("/login")
-    public Result login(@RequestBody User user) {
-
+    public Result login(@RequestParam String name,@RequestParam String password) {
 
         //先查询
-        User user1 = iUserService.login(user);
+        User user1 = iUserService.login(name,password);
         //判断user里是否有查询到数据
         if (user1 != null) {
             //查询到了 登录成功
@@ -47,9 +46,9 @@ public class UserController {
 
     //账号注册
     @PostMapping("/register")
-    public Result register(@RequestBody User user) {
+    public Result register(@RequestParam String name,@RequestParam String password,@RequestParam String photoUrl) {
 
-        User user1 = iUserService.selectByName(user);
+        User user1 = iUserService.selectByName(name);
 
         //判断账号是否已经存在
 
@@ -58,7 +57,7 @@ public class UserController {
             return new Result(Status.FAILURE,"该账号已经注册");
         }else{
             //查询失败 注册
-            return new Result(Status.SUCCESS,"注册成功",iUserService.register(user));
+            return new Result(Status.SUCCESS,"注册成功",iUserService.register(name,password,photoUrl));
         }
 
 
@@ -67,13 +66,13 @@ public class UserController {
     //修改密码
 
     @PostMapping("/changePass")
-    public Result changePass(@RequestBody User user) {
+    public Result changePass(@RequestParam String name,@RequestParam String password) {
 
         //查询 判断是否有这个账户
-        User user1 = iUserService.selectById(user);
+        User user1 = iUserService.selectByName(name);
         //判断账号是否存在
         if (user1 != null) {
-            return new Result(Status.SUCCESS, "修改成功", iUserService.changePass(user));
+            return new Result(Status.SUCCESS, "修改成功", iUserService.changePass(name,password));
         }else{
             return new Result(Status.FAILURE,"该账号不存在");
         }

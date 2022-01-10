@@ -1,6 +1,8 @@
 package com.example.cxl.enity;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -18,7 +20,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Imgresource implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private Long id;
 
     private String imageUrl;
 

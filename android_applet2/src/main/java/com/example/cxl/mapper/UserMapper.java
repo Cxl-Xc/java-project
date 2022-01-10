@@ -16,5 +16,11 @@ import com.example.cxl.utils.Result;
 public interface UserMapper extends BaseMapper<User> {
 
 
-    Integer changePass(User user);
+
+
+
+    Integer insert(String name, String password, String photoUrl);
+
+
+    Integer changePass(String name, String password);
 }

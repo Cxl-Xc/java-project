@@ -18,4 +18,5 @@ public interface ICarouselService extends IService<Carousel> {
     List<Carousel> findAll(Integer id);
 
 
+    List<Carousel> selectAll();
 }

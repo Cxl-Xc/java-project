@@ -1,17 +1,28 @@
+#server:
+#  port: 8081
+
 server:
-  port: 8081
-
-
+  port: 17877
+  servlet:
+    context-path: /demo-1.0
 spring:
   datasource:
 
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/android_applet
-    username: root
-    password: root
+    url: jdbc:mysql://47.100.250.1:3306/android_applet?serviceTimezone=PRC
+    username: qihongyan
+    password: bJF@010822
   global-config:
     db-config:
       id-type: auto
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/android_applet?serviceTimezone=PRC
+#    username: root
+#    password: root
+#  global-config:
+#    db-config:
+#      id-type: auto
+
 
 mybatis-plus:
   configuration:

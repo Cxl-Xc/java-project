@@ -30,16 +30,34 @@ public class ImgresourceController {
     @Resource
     private IImgresourceService iImgresourceService;
 
+    //查询全部
+    @GetMapping("/selectAllImg")
+    public Result selectAll(){
+
+        List<Imgresource> imgresourceList=iImgresourceService.selectAll();
+
+        //判断是否查询到
+        if (imgresourceList.isEmpty()) {
+            return new Result(Status.FAILURE,"查询失败");
+
+        }else{
+            return new Result(Status.SUCCESS, "查询成功",imgresourceList);
+
+        }
+
+    }
     //根据id查询img
-    @GetMapping("/imggetter{id}")
+    @GetMapping("/imggetter")
     public Result selectImgById(@RequestParam Integer id){
 
         List<Imgresource> imgresourceList = iImgresourceService.findAll(id);
         //判断是否查询到
-        if (imgresourceList != null) {
-            return new Result(Status.SUCCESS, "查询成功",imgresourceList);
-        }else{
+        if (imgresourceList.isEmpty()) {
             return new Result(Status.FAILURE,"查询失败");
+
+        }else{
+            return new Result(Status.SUCCESS, "查询成功",imgresourceList);
+
         }
 
     }
@@ -51,10 +69,13 @@ public class ImgresourceController {
 
         List<Imgresource> imgresourceList = iImgresourceService.findBycCondition(condition);
 
-        if (imgresourceList != null) {
-            return new Result(Status.SUCCESS, "查询成功", imgresourceList);
+        //判断是否查询到
+        if (imgresourceList.isEmpty()) {
+            return new Result(Status.FAILURE,"查询失败");
+
         }else{
-            return new Result(Status.FAILURE, "查询失败");
+            return new Result(Status.SUCCESS, "查询成功",imgresourceList);
+
         }
 
 
@@ -63,18 +84,5 @@ public class ImgresourceController {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 }

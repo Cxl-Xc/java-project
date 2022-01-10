@@ -14,15 +14,23 @@ import com.example.cxl.utils.Result;
  */
 public interface IUserService extends IService<User> {
 
-    User login(User user);
 
 
-    User selectByName(User user);
 
 
-    Object register(User user);
 
-    User selectById(User user);
 
-    Integer changePass(User user);
+
+
+
+
+
+
+    User login(String name, String password);
+
+    User selectByName(String name);
+
+    Object register(String name, String password, String photoUrl);
+
+    Integer changePass(String name,String password);
 }

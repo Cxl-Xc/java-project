@@ -19,4 +19,6 @@ public interface IImgresourceService extends IService<Imgresource> {
 
 
     List<Imgresource> findBycCondition(String condition);
+
+    List<Imgresource> selectAll();
 }

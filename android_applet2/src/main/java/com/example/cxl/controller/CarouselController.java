@@ -2,6 +2,7 @@ package com.example.cxl.controller;
 
 
 import com.example.cxl.enity.Carousel;
+import com.example.cxl.enity.Imgresource;
 import com.example.cxl.service.ICarouselService;
 import com.example.cxl.utils.Result;
 import com.example.cxl.utils.Status;
@@ -32,20 +33,42 @@ public class CarouselController {
 //    @GetMapping("/selectLbtById")
 
 
-    @GetMapping("/carousel{id}")
+    @GetMapping("/carousel")
     public Result selectLbtById(@RequestParam Integer id){
 
         List<Carousel> carouselList=iCarouselService.findAll(id);
 
         //判断是否有查询到数据
-        if (carouselList != null) {
-            return new Result(Status.SUCCESS, "查询成功", carouselList);
-        }else {
+        if (carouselList.isEmpty()) {
             return new Result(Status.FAILURE, "查询失败");
+        }else {
+
+            return new Result(Status.SUCCESS, "查询成功", carouselList);
         }
 
 
     }
 
 
+    @GetMapping("/selectAllCarouse")
+    public Result selectAll(){
+
+        List<Carousel> imgresourceList=iCarouselService.selectAll();
+
+        //判断是否查询到
+        if (imgresourceList.isEmpty()) {
+            return new Result(Status.FAILURE,"查询失败");
+
+        }else{
+
+            return new Result(Status.SUCCESS, "查询成功",imgresourceList);
+
+        }
+
+    }
+
+
 }
+
+
+

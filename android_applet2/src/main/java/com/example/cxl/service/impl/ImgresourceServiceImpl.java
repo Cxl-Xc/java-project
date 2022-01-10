@@ -39,4 +39,10 @@ public class ImgresourceServiceImpl extends ServiceImpl<ImgresourceMapper, Imgre
         qw.like("title", condition);
         return imgresourceMapper.selectList(qw);
     }
+
+    @Override
+    public List<Imgresource> selectAll() {
+
+        return imgresourceMapper.selectList(null);
+    }
 }

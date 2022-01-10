@@ -25,36 +25,32 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private UserMapper userMapper;
 
     @Override
-    public User login(User user) {
+    public User login(String name, String password) {
         QueryWrapper<User>qw=new QueryWrapper<>();
-        qw.eq("name", user.getName());
-        qw.eq("password", user.getPassword());
+        qw.eq("name", name);
+        qw.eq("password", password);
         return userMapper.selectOne(qw);
     }
 
     @Override
-    public User selectByName(User user) {
+    public User selectByName(String name) {
         QueryWrapper<User> qw=new QueryWrapper<>();
-        qw.eq("name", user.getName());
+        qw.eq("name", name);
         return  userMapper.selectOne(qw);
     }
 
     @Override
-    public Object register(User user) {
-        return userMapper.insert(user);
+    public Integer register(String name, String password, String photoUrl) {
+
+        return userMapper.insert(name,password,photoUrl);
     }
 
-    @Override
-    public User selectById(User user) {
-        QueryWrapper<User> qw=new QueryWrapper<>();
-        qw.eq("id", user.getId());
-        return userMapper.selectOne(qw);
-    }
+
 
     @Override
-    public Integer changePass(User user) {
+    public Integer changePass(String name,String password) {
 
-        return (Integer) userMapper.changePass(user);
+        return userMapper.changePass(name,password);
     }
 
 

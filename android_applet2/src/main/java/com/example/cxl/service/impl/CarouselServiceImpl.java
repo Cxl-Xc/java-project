@@ -30,4 +30,11 @@ public class CarouselServiceImpl extends ServiceImpl<CarouselMapper, Carousel> i
         qw.eq("category_id", id);
         return carouselMapper.selectList(qw);
     }
+
+    @Override
+    public List<Carousel> selectAll() {
+        return carouselMapper.selectList(null);
+    }
+
+
 }
