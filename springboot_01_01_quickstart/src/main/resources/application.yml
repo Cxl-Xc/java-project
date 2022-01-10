@@ -1,0 +1,61 @@
+country: china
+province: beijing
+city: beijing
+area: haidian
+
+port: 8080
+
+party: true
+
+birthday: 1949-10-01
+
+user1:
+  name: itcast111
+  age: 16
+
+user2:
+  name: itcast222
+  age: 17
+
+
+#数组
+
+likes:
+  - game
+  - music
+  - sleep
+
+
+likes2: [game,music,sleep]
+
+
+
+#对象数组
+
+users:
+  - name: zhangsan
+    age: 18
+  - name: lisi
+    age: 17
+
+
+
+#创建类，用于封装下面的数据
+#由spring帮我们去加载数据到对象中 一定要告诉spring加载这组信息
+#使用的时候从spring中直接获取信息使用
+
+
+datasource:
+  driver: com.mysql.cj.djbc.Driver
+  url: jdbc:mysql//localhost/springboot_db
+  username: root
+  password: root
+
+
+
+
+
+
+
+
+
